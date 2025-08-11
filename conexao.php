@@ -5,7 +5,7 @@ $user = "root";
 $password = "root";
 $db = "crud_exemplo";
 
-$conn = mysqli_connect($host, $user, $password, $db); // Erro: $hot ao invés de $host
+$conn = new mysqli($host, $user, $password, $db); // Erro: $hot ao invés de $host
 
 if ($conn->connect_error) {
    die("Conexao falhou: " . $conn->connect_error);
