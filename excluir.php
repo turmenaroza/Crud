@@ -4,7 +4,15 @@ include("conexao.php");
 
 $id = $_GET["id"];
 $sql = "DELETE FROM usuarios WHERE id = $id";
-mysqli_query($conn, $sql);
+new mysql($conn, $sql);
+
+if ($conn->query($sql) === true) {
+    echo "Registro excluído com sucesso";
+} else {
+    echo "Erro " . $sql . '<br>' . $conn->error;
+}
+$conn -> close();
+exit();
 
 header("Location: index.php");
 ?>
