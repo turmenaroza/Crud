@@ -1,17 +1,17 @@
 <?php
 
-include("conexao.php");
+include('conexao.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
 
-    $sql = "INSERT INTO usuarios (nome, email) VALUES ('$nome', '$email')";
+    $sql = 'INSERT INTO usuarios (nome, email) VALUES ('$nome', '$email')';
     $res = mysqli_query($conn, $sql);
     if ($$conn->query($sql) === true) {
-        echo "Usuário cadastrado com sucesso!";
+        echo 'Usuário cadastrado com sucesso!';
     }else{
-        echo "Erro ao cadastrar!". $sql . '<br>' . $conn->error;
+        echo 'Erro ao cadastrar!'. $sql . '<br>' . $conn->error;
     }
         $conn->close();
 }
@@ -29,8 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <form method="POST" action="cadastrar.php"> 
 
-     <label for="name">Nome:</label>
-        <input type="text" name="name" required>
+     <label for="nome">Nome:</label>
+        <input type="text" name="nome" required>
 
         <label for="email">Email:</label>
         <input type="email" name="email" required>
